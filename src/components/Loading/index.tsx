@@ -6,38 +6,33 @@ import { Load } from '@/components/Svgs/Loading'
 
 export default function Loading() {
   const content = useRef<HTMLDivElement>(null)
-  const right = useRef<HTMLDivElement>(null)
-  const left = useRef<HTMLDivElement>(null)
+  const portal = useRef<HTMLDivElement>(null)
 
   const fadeIn = () => {
-    gsap.to(left.current, {
-      duration: 3,
+    gsap.to(portal.current, {
+      duration: 1.4,
       overwrite: true,
-      ease: 'power1.out',
-      opacity: 1
-    })
-
-    gsap.to(right.current, {
-      duration: 3,
-      overwrite: true,
-      ease: 'power1.out',
-      opacity: 1
+      ease: 'power2.out',
+      opacity: 1,
+      y: 0,
+      scale: 1,
     })
   }
 
   const fadeOut = (link: string) => {
-    gsap.to(left.current, {
-      duration: 2,
-      ease: 'power3.out',
+    gsap.to(portal.current, {
+      duration: 1.2,
       overwrite: true,
-      x: -1500
+      ease: 'power3.inOut',
+      opacity: 0,
+      scale: 1.04,
     })
 
-    gsap.to(right.current, {
-      duration: 2,
+    gsap.to(content.current, {
+      duration: 0.8,
       overwrite: true,
-      ease: 'power3.out',
-      x: 1500,
+      ease: 'power1.out',
+      opacity: 1,
       onComplete: () => {
         try {
           if (window.top) {
@@ -48,14 +43,7 @@ export default function Loading() {
         } catch {
           window.location.href = link
         }
-      }
-    })
-
-    gsap.to(content.current, {
-      duration: 3,
-      overwrite: true,
-      ease: 'power1.out',
-      opacity: 1
+      },
     })
   }
 
@@ -64,33 +52,32 @@ export default function Loading() {
   }, [])
 
   return (
-    <div className="absolute left-0 top-0 z-10 flex h-screen w-screen cursor-pointer select-none flex-col items-center justify-center overflow-hidden bg-primary text-black">
+    <div className="absolute left-0 top-0 z-10 flex h-screen w-screen select-none flex-col items-center justify-center overflow-hidden bg-white text-black">
       <div
         ref={content}
-        className="flex -translate-x-2 -translate-y-9 flex-col items-center justify-center opacity-0"
+        className="pointer-events-none absolute left-1/2 top-1/2 z-40 flex -translate-x-1/2 -translate-y-1/2 flex-col items-center justify-center opacity-0"
       >
-        <Load className="w-16 fill-current" />
+        <Load className="w-16 fill-current text-green-900" />
       </div>
 
-      <div className="absolute left-0 top-0 z-50 flex h-screen w-screen flex-1 flex-col justify-center md:flex-row">
+      <div className="absolute left-0 top-0 z-50 flex h-screen w-screen items-center justify-center px-6">
         <div
-          ref={left}
-          className="relative flex h-full w-full items-center justify-center space-x-3 bg-white text-blue-500 opacity-0 transition-all hover:text-cyan-500 md:w-1/2"
-          onClick={() => fadeOut('https://chainlinkink.com/cli-printing-home/')}
-        >
-          <p className="border-b-8 text-5xl font-bold md:text-7xl">CLI &nbsp;&nbsp;Printing</p>
-        </div>
-
-        <div
-          ref={right}
-          className="flex h-full w-full items-center justify-center space-x-3 bg-black text-white opacity-0 transition-all hover:text-slate-400 md:w-1/2"
-          onClick={() => fadeOut('https://chainlinkink.com/waste-management/')}
+          ref={portal}
+          className="group flex w-full max-w-5xl translate-y-6 cursor-pointer flex-col items-center justify-center rounded-[34px] border border-green-800 bg-white px-8 py-14 text-center opacity-0 shadow-2xl shadow-green-100 transition-all duration-300 hover:-translate-y-1 hover:shadow-green-200"
+          onClick={() =>
+            fadeOut('https://chainlinkink.com/portal/waste-management/wm/order')
+          }
         >
           <img
             src="/wm-logo.png"
-            alt="WM Logo"
-            className="w-[320px] md:w-[520px] lg:w-[640px]"
+            alt="Waste Management Logo"
+            className="w-[320px] md:w-[560px] lg:w-[680px]"
           />
+
+          <div className="mt-12 flex w-full max-w-4xl items-center justify-center rounded-2xl bg-green-900 px-6 py-6 text-xl font-extrabold uppercase tracking-wide text-white transition-all duration-300 group-hover:bg-green-950 md:text-3xl">
+            Start Waste Management Order
+            <span className="ml-6 text-5xl leading-none">→</span>
+          </div>
         </div>
       </div>
     </div>
