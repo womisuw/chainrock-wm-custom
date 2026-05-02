@@ -3,13 +3,11 @@
 import React, { useEffect, useRef } from 'react'
 import gsap from 'gsap'
 import { Load } from '@/components/Svgs/Loading'
-import { useRouter } from 'next/navigation'
 
 export default function Loading() {
   const content = useRef<HTMLDivElement>(null)
   const right = useRef<HTMLDivElement>(null)
   const left = useRef<HTMLDivElement>(null)
-  const router = useRouter()
 
   const fadeIn = () => {
     gsap.to(left.current, {
@@ -41,7 +39,7 @@ export default function Loading() {
       ease: 'power3.out',
       x: 1500,
       onComplete: () => {
-        router.replace(link)
+        window.location.href = link
       }
     })
 
@@ -78,7 +76,7 @@ export default function Loading() {
         <div
           ref={right}
           className="flex h-full w-full items-center justify-center space-x-3 bg-black text-white opacity-0 transition-all hover:text-slate-400 md:w-1/2"
-          onClick={() => fadeOut('https://chainlinkink.com/chain-link-ink/')}
+          onClick={() => fadeOut('https://chainlinkink.com/waste-management/')}
         >
           <img
             src="/wm-logo.png"
