@@ -39,7 +39,15 @@ export default function Loading() {
       ease: 'power3.out',
       x: 1500,
       onComplete: () => {
-        window.location.href = link
+        try {
+          if (window.top) {
+            window.top.location.href = link
+          } else {
+            window.location.href = link
+          }
+        } catch {
+          window.location.href = link
+        }
       }
     })
 
