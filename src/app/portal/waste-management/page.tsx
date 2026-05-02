@@ -99,11 +99,13 @@ export default function WasteManagementPortalPage() {
               Start Waste Management Order
             </span>
 
-            <span className="whitespace-nowrap text-[42px] font-extrabold uppercase leading-none tracking-wide sm:hidden">
+            <span className="whitespace-nowrap text-[28px] font-extrabold uppercase leading-none tracking-wide sm:hidden">
               Start Order
             </span>
 
-            <span className="ml-5 shrink-0 text-5xl leading-none sm:ml-6">→</span>
+            <span className="ml-4 shrink-0 text-4xl leading-none sm:ml-6 sm:text-5xl">
+              →
+            </span>
           </div>
         </div>
       </div>
