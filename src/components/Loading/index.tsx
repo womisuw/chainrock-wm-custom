@@ -27,6 +27,7 @@ export default function Loading() {
       force3D: false,
       onComplete: () => {
         if (!portal.current) return
+
         gsap.set(portal.current, {
           clearProps: 'willChange',
         })
@@ -79,10 +80,10 @@ export default function Loading() {
         <Load className="w-16 fill-current text-green-900" />
       </div>
 
-      <div className="absolute left-0 top-0 z-50 flex h-screen w-screen items-center justify-center px-6">
+      <div className="absolute left-0 top-0 z-50 flex h-screen w-screen items-center justify-center px-5 sm:px-6">
         <div
           ref={portal}
-          className="group flex w-full max-w-5xl cursor-pointer flex-col items-center justify-center rounded-[34px] border border-green-800 bg-white px-8 py-14 text-center opacity-0 shadow-2xl shadow-green-100 transition-[box-shadow,transform] duration-300 hover:-translate-y-1 hover:shadow-green-200"
+          className="group flex w-full max-w-5xl cursor-pointer flex-col items-center justify-center bg-white px-4 py-8 text-center opacity-0 transition-transform duration-300 hover:-translate-y-1 sm:px-8 sm:py-10"
           onClick={() =>
             fadeOut('https://chainlinkink.com/portal/waste-management/wm/order')
           }
@@ -90,12 +91,13 @@ export default function Loading() {
           <img
             src="/wm-logo.png"
             alt="Waste Management Logo"
-            className="w-[320px] md:w-[560px] lg:w-[680px]"
+            className="w-[300px] sm:w-[420px] md:w-[560px] lg:w-[680px]"
           />
 
-          <div className="mt-12 flex w-full max-w-4xl items-center justify-center rounded-2xl bg-green-900 px-6 py-6 text-xl font-extrabold uppercase tracking-wide text-white transition-colors duration-300 group-hover:bg-green-950 md:text-3xl">
-            Start Waste Management Order
-            <span className="ml-6 text-5xl leading-none">→</span>
+          <div className="mt-10 flex w-full max-w-[620px] items-center justify-center rounded-2xl bg-green-900 px-5 py-5 text-3xl font-extrabold uppercase tracking-wide text-white transition-colors duration-300 group-hover:bg-green-950 sm:mt-12 sm:max-w-4xl sm:px-6 sm:py-6 sm:text-xl md:text-3xl">
+            <span className="hidden sm:inline">Start Waste Management Order</span>
+            <span className="sm:hidden">Start Order</span>
+            <span className="ml-5 text-5xl leading-none sm:ml-6">→</span>
           </div>
         </div>
       </div>
