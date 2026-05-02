@@ -94,10 +94,16 @@ export default function Loading() {
             className="w-[300px] sm:w-[420px] md:w-[560px] lg:w-[680px]"
           />
 
-          <div className="mt-10 flex w-full max-w-[620px] items-center justify-center rounded-2xl bg-green-900 px-5 py-5 text-3xl font-extrabold uppercase tracking-wide text-white transition-colors duration-300 group-hover:bg-green-950 sm:mt-12 sm:max-w-4xl sm:px-6 sm:py-6 sm:text-xl md:text-3xl">
-            <span className="hidden sm:inline">Start Waste Management Order</span>
-            <span className="sm:hidden">Start Order</span>
-            <span className="ml-5 text-5xl leading-none sm:ml-6">→</span>
+          <div className="mt-10 flex w-full max-w-[620px] items-center justify-center rounded-2xl bg-green-900 px-5 py-5 text-white transition-colors duration-300 group-hover:bg-green-950 sm:mt-12 sm:max-w-4xl sm:px-6 sm:py-6">
+            <span className="hidden whitespace-nowrap text-xl font-extrabold uppercase tracking-wide sm:inline md:text-3xl">
+              Start Waste Management Order
+            </span>
+
+            <span className="whitespace-nowrap text-[42px] font-extrabold uppercase leading-none tracking-wide sm:hidden">
+              Start Order
+            </span>
+
+            <span className="ml-5 shrink-0 text-5xl leading-none sm:ml-6">→</span>
           </div>
         </div>
       </div>
