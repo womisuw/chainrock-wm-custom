@@ -75,9 +75,7 @@ export default function Loading() {
           onClick={() => fadeOut('https://chainlinkink.com/cli-printing-home/ ')}
         >
           {/* <CLI className="w-20 -translate-y-2 fill-current" /> */}
-          <p className="border-b-8 text-5xl font-bold md:text-7xl">
-            CLI &nbsp;&nbsp;Printing
-          </p>
+          <p className="border-b-8 text-5xl font-bold md:text-7xl">CLI &nbsp;&nbsp;Printing</p>
         </div>
 
         <div
