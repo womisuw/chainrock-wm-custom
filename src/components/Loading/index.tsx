@@ -11,8 +11,6 @@ export default function Loading() {
   const left = useRef<HTMLDivElement>(null)
   const router = useRouter()
 
-  // const [finishIn, setFinishIn] = useState(false)
-
   const fadeIn = () => {
     gsap.to(left.current, {
       duration: 3,
@@ -72,9 +70,8 @@ export default function Loading() {
         <div
           ref={left}
           className="relative flex h-full w-full items-center justify-center space-x-3 bg-white text-blue-500 opacity-0 transition-all hover:text-cyan-500 md:w-1/2"
-          onClick={() => fadeOut('https://chainlinkink.com/cli-printing-home/ ')}
+          onClick={() => fadeOut('https://chainlinkink.com/cli-printing-home/')}
         >
-          {/* <CLI className="w-20 -translate-y-2 fill-current" /> */}
           <p className="border-b-8 text-5xl font-bold md:text-7xl">CLI &nbsp;&nbsp;Printing</p>
         </div>
 
@@ -85,10 +82,9 @@ export default function Loading() {
         >
           <img
             src="/wm-logo.png"
-            alt="WM logo"
+            alt="WM Logo"
             className="w-[320px] md:w-[520px] lg:w-[640px]"
           />
-          {/* <p className="absolute bottom-5 right-5 font-bold">Copyright 2024 - Chain Link Ink </p> */}
         </div>
       </div>
     </div>
